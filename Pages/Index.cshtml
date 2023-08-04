@@ -1,0 +1,30 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<form method="post">
+    <table class="table">
+        <tbody>
+            @if (Model.Plans != null)
+            {
+                foreach (var name in Model.Plans)
+                {
+                    <tr>
+                        <td class="align-middle">@name</td>
+                        <td>
+                            <a class="btn btn-outline-success" asp-page="./Edit" asp-route-name="@name" asp-route-date="@DateTime.UtcNow.ToString("yyyy-MM-dd")">
+                                <i class="bi bi-pen-fill"></i>
+                            </a>
+                            <button class="btn btn-outline-success" type="submit" asp-page-handler="delete" asp-route-name="@name">
+                                <i class="bi bi-trash-fill"></i>
+                            </button>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+    <a asp-page="Create" class="btn btn-outline-success">Create new plan</a>
+</form>

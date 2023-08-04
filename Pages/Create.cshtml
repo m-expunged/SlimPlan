@@ -1,0 +1,24 @@
+﻿@page
+@model SlimPlan.Pages.CreateModel
+@{
+    ViewData["Title"] = "Create";
+}
+
+<form method="post" class="mt-3">
+    <div asp-validation-summary="ModelOnly"></div>
+    <span asp-validation-for="Name"></span>
+    
+    <div class="form-group">
+        <label for="input-name">Name</label>
+        <input asp-for="Name" type="text" class="form-control" id="input-name" />
+        <small id="name-help" class="form-text text-muted">Enter a name for your new plan</small>
+    </div>
+
+    <div class="mt-3">
+        <input type="submit" class="btn btn-outline-primary"/>
+    </div>
+</form>
+
+<div class="mt-3">
+    <a asp-page="./Index" class="btn btn-outline-dark">Back to list</a>
+</div>
