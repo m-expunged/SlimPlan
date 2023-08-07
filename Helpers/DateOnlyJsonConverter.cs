@@ -8,7 +8,7 @@ namespace SlimPlan.Helpers
     {
         #region Fields
 
-        private const string Format = "yyyy-MM-dd";
+        private const string Format = "d";
 
         #endregion Fields
 

@@ -14,7 +14,7 @@
                     <tr>
                         <td class="align-middle">@name</td>
                         <td>
-                            <a class="btn btn-outline-success" asp-page="./Edit" asp-route-name="@name" asp-route-date="@DateTime.UtcNow.ToString("yyyy-MM-dd")">
+                            <a class="btn btn-outline-success" asp-page="./Edit" asp-route-name="@name" asp-route-date="@DateTime.UtcNow.ToString("d")">
                                 <i class="bi bi-pen-fill"></i>
                             </a>
                             <button class="btn btn-outline-success" type="submit" asp-page-handler="delete" asp-route-name="@name">

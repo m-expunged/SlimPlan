@@ -7,11 +7,11 @@
 @if (Model.Plan is not null && Model.Week is not null)
 {
     <form method="post" class="text-center">
-        <a asp-page="./Edit" asp-route-name="@Model.Plan.Name" asp-route-date="@Model.Week[0].DateUtc.AddDays(-7).ToString("yyyy-MM-dd")" class="btn btn-link">
+        <a asp-page="./Edit" asp-route-name="@Model.Plan.Name" asp-route-date="@Model.Week[0].DateUtc.AddDays(-7).ToString("d")" class="btn btn-link">
             <i class="bi bi-arrow-left"></i>
             Previous
         </a>
-        <a asp-page="./Edit" asp-route-name="@Model.Plan.Name" asp-route-date="@Model.Week[0].DateUtc.AddDays(7).ToString("yyyy-MM-dd")" class="btn btn-link">
+        <a asp-page="./Edit" asp-route-name="@Model.Plan.Name" asp-route-date="@Model.Week[0].DateUtc.AddDays(7).ToString("d")" class="btn btn-link">
             Next
             <i class="bi bi-arrow-right"></i>
         </a>
@@ -35,7 +35,7 @@
                             <form method="post" class="mb-1">
                                 <div class="input-group">
                                     <div class="form-control">@note.Value.Text</div>
-                                    <button type="submit" asp-page-handler="delete" asp-route-name="@Model.Plan.Name" asp-route-date="@Model.Week[i].DateUtc.ToString("yyyy-MM-dd")" asp-route-id="@note.Key" class="btn btn-success input-group-append">
+                                    <button type="submit" asp-page-handler="delete" asp-route-name="@Model.Plan.Name" asp-route-date="@Model.Week[i].DateUtc.ToString("d")" asp-route-id="@note.Key" class="btn btn-success input-group-append">
                                         <i class="bi bi-trash-fill"></i>
                                     </button>
                                 </div>
@@ -44,7 +44,7 @@
                         <form method="post" class="mb-1">
                             <div class="input-group">
                                 <input asp-for="Note" type="text" class="form-control" id="input-note-@i" />
-                                <button type="submit" asp-page-handler="add" asp-route-name="@Model.Plan.Name" asp-route-date="@Model.Week[i].DateUtc.ToString("yyyy-MM-dd")" asp-route-index=@i class="btn btn-success input-group-append">
+                                <button type="submit" asp-page-handler="add" asp-route-name="@Model.Plan.Name" asp-route-date="@Model.Week[i].DateUtc.ToString("d")" asp-route-index=@i class="btn btn-success input-group-append">
                                     <i class="bi bi-plus"></i>
                                 </button>
                             </div>
@@ -60,3 +60,10 @@
 <div>
     <a asp-page="./Index" class="btn btn-outline-dark">Back to list</a>
 </div>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
